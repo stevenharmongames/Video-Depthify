@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+#Deprecated alias np.float in prev version of script. Fixed it by using the built-in float or the numpy scalar type np.float64.
 import os
 import glob
 import numpy as np
@@ -12,22 +12,22 @@ w, h = Image.open(first).size
 Image.open(first).save(first.replace('depth', 'averaged'))
 
 for idx in range(items):
-	current = idx + 2
-	arr = np.zeros((h, w, 3), np.float)
-	
-	prev = np.array(Image.open('./depth/' + str(current - 1).zfill(6) + '.jpg'), dtype = np.float)
-	curr = np.array(Image.open('./depth/' + str(current).zfill(6) + '.jpg'), dtype = np.float)
-	next = np.array(Image.open('./depth/' + str(current + 1).zfill(6) + '.jpg'), dtype = np.float)
-	
-	arr = arr+prev/3
-	arr = arr+curr/3
-	arr = arr+next/3
-	
-	arr = np.array(np.round(arr), dtype = np.uint8)
-	
-	out = Image.fromarray(arr,mode = 'RGB')
-	out.save('./averaged/' + str(current).zfill(6) + '.jpg')
-	#print('Averaged: ' + str(current).zfill(6) + '.jpg')
+    current = idx + 2
+    arr = np.zeros((h, w, 3), np.float64)  # Use np.float64 instead of np.float
+    
+    prev = np.array(Image.open('./depth/' + str(current - 1).zfill(6) + '.jpg'), dtype=np.float64)  # Use np.float64
+    curr = np.array(Image.open('./depth/' + str(current).zfill(6) + '.jpg'), dtype=np.float64)  # Use np.float64
+    next = np.array(Image.open('./depth/' + str(current + 1).zfill(6) + '.jpg'), dtype=np.float64)  # Use np.float64
+    
+    arr = arr + prev / 3
+    arr = arr + curr / 3
+    arr = arr + next / 3
+    
+    arr = np.array(np.round(arr), dtype=np.uint8)
+    
+    out = Image.fromarray(arr, mode='RGB')
+    out.save('./averaged/' + str(current).zfill(6) + '.jpg')
+    #print('Averaged: ' + str(current).zfill(6) + '.jpg')
 
 Image.open(last).save(last.replace('depth', 'averaged'))
 print('Done.')
