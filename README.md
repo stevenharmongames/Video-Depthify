@@ -23,50 +23,50 @@ _Use the following Colab notebook to use [BoostingMonocularDepth](https://github
 
 ### Setup
   Step 1: Install Anaconda
-Download Anaconda: Go to the Anaconda website and download the Anaconda installer for Windows.
-https://www.anaconda.com/download
-
-Install Anaconda: Run the installer and follow the on-screen instructions to install Anaconda. Make sure to check the option to add Anaconda to your PATH environment variable.
-
-Step 2: Set Up a New Conda Environment
-Open Anaconda Prompt: Search for "Anaconda Prompt" in your Start menu and open it.
-Create a New Environment: Run the following command to create a new environment named depthify:
-
-conda create --name depthify python=3.8
-
-Activate the Environment: Activate your new environment with:
-
-conda activate depthify
-
-Step 3: Install Dependencies
-Install Required Packages: Run the following commands to install the necessary dependencies:
-
-pip install torch torchvision opencv-python timm Pillow numpy ffmpeg-python
-
-Step 4: Navigate to the Project Directory
-
-still inside the Anaconda Prompt type
-
-cd C:\Users\yourname\Documents\thefolderwiththisproject
-
-Copy `depth.py`, `average.py` and `merge.py` into a folder with the video you wish to depthify. In our case we are using a short, royalty-free [video](https://pixabay.com/videos/elephant-pachyderm-tanzania-6447/) of an elephant.
-In the same folder, create empty folders `rgb`, `depth`, `averaged`, and `merged`.
-
-
-Your folder structure should look like this:
-```
-.
-├── averaged
-├── average.py
-├── depth
-├── depth.py
-├── Elephant.mp4
-├── merged
-├── merge.py
-└── rgb
-```
-
-Step 5: Run the scripts!
+  Download Anaconda: Go to the Anaconda website and download the Anaconda installer for Windows.
+  https://www.anaconda.com/download
+  
+  Install Anaconda: Run the installer and follow the on-screen instructions to install Anaconda. Make sure to check the option to add Anaconda to your PATH environment variable.
+  
+  Step 2: Set Up a New Conda Environment
+  Open Anaconda Prompt: Search for "Anaconda Prompt" in your Start menu and open it.
+  Create a New Environment: Run the following command to create a new environment named depthify:
+  
+  `conda create --name depthify python=3.8`
+  
+  Activate the Environment: Activate your new environment with:
+  
+  `conda activate depthify`
+  
+  Step 3: Install Dependencies
+  Install Required Packages: Run the following commands to install the necessary dependencies:
+  
+  `pip install torch torchvision opencv-python timm Pillow numpy ffmpeg-python`
+  
+  Step 4: Navigate to the Project Directory
+  
+  still inside the Anaconda Prompt type
+  
+  `cd C:\Users\yourname\Documents\thefolderwiththisproject`
+  
+  Copy `depth.py`, `average.py` and `merge.py` into a folder with the video you wish to depthify. In our case we are using a short, royalty-free [video](https://pixabay.com/videos/elephant-pachyderm-tanzania-6447/) of an elephant.
+  In the same folder, create empty folders `rgb`, `depth`, `averaged`, and `merged`.
+  
+  
+  Your folder structure should look like this:
+  ```
+  .
+  ├── averaged
+  ├── average.py
+  ├── depth
+  ├── depth.py
+  ├── Elephant.mp4
+  ├── merged
+  ├── merge.py
+  └── rgb
+  ```
+  
+  Step 5: Run the scripts!
 
 ### Steps
 1) Get the FPS of the source video. We will need this to put the video back together.
